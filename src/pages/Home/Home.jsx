@@ -11,12 +11,16 @@ const Home = () => {
             <h2 className="text-3xl font-poppins font-bold">This is home</h2>
             <Header></Header>
             <Navbar></Navbar>
-            <div className='grid grid-cols-3'>
-                <LeftSideNab></LeftSideNab>
-                <div className='col-span-2'>
+            <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
+                <div className='border'>
+                    <LeftSideNab></LeftSideNab>
+                </div>
+                <div className='col-span-2 border'>
                     <MainNews></MainNews>
                 </div>
-                <RightSideNab></RightSideNab>
+                <div className='border'>
+                    <RightSideNab></RightSideNab>
+                </div>
             </div>
         </div>
     );
