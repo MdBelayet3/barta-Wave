@@ -7,7 +7,7 @@ const NewsLatest = () => {
         <div>
             <div className='flex my-4 bg-[#F3F3F3] p-4 rounded-lg'>
                 <button className="btn btn-secondary">Latest</button>
-                <Marquee pauseOnHover={true} speed={100}>
+                <Marquee className='text-lg font-semibold' pauseOnHover={true} speed={100}>
                     <Link className='mr-4' to={""}>Bangladesh Women's Cricket Team Gears Up for T20 Series.....
                     </Link>
                     <Link className='mr-4' to={""}>I can be a React component, multiple React components, or just some text.....

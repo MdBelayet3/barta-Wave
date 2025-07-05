@@ -17,7 +17,7 @@ const Home = () => {
                 <div className='col-span-2 border'>
                     <MainNews></MainNews>
                 </div>
-                <div className='border'>
+                <div className=''>
                     <RightSideNab></RightSideNab>
                 </div>
             </div>
