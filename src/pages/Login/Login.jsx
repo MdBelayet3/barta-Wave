@@ -12,9 +12,14 @@ const Login = () => {
         const email = form.get('email');
         const password = form.get('password');
         console.log(email, password);
+<<<<<<< HEAD
         e.target.reset();
     }
 
+=======
+    }
+    
+>>>>>>> 6ae67470a8a2acda246c541f9a1b089381dd6e31
     return (
         <div>
             <Navbar></Navbar>
