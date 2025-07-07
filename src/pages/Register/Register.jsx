@@ -6,12 +6,18 @@ const Register = () => {
      // handle login function
     const handleRegister = e =>{
         e.preventDefault();
+
+        // to get input data
         console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
         console.log(form);
+        const name = form.get('name');
+        const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
-        console.log(email, password);
+        console.log(name, photo, email, password);
+
+        // 
     }
 
     return (
