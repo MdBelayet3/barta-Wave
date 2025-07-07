@@ -1,7 +1,7 @@
 import { CiCalendar } from "react-icons/ci";
 
 const NewsCard = ({ news }) => {
-    console.log(news)
+    const date = news?.author?.published_date;
     return (
         <>
             <a href={`/category/${news?.category_id}`}>
@@ -12,7 +12,7 @@ const NewsCard = ({ news }) => {
                         <h5 className="font-medium">Category: {news?.category_name}</h5>
                         <span className="flex items-center gap-4">
                             <CiCalendar />
-                            <p className="font-medium text-[#9F9F9F]">{news?.author?.published_date}</p>
+                            <p className="font-medium text-[#9F9F9F]">{date}</p>
                         </span>
                     </div>
                 </div>
