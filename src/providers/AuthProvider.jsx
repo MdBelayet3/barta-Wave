@@ -16,7 +16,12 @@ const AuthProvider = ({children}) => {
     }
 
     const authInfo = {
+<<<<<<< HEAD
         user, createUser
+=======
+        user, 
+        createUser,
+>>>>>>> ef84c8e419fe028b67a14b6769146540a8aaf573
     }
 
     return (
