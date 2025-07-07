@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import userProfile from '../../../assets/user.png'
 
 const Navbar = () => {
@@ -7,6 +7,7 @@ const Navbar = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/career">Career</NavLink></li>
+        <li><NavLink to="/login">Login</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -40,8 +41,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end ">
                 <img src={userProfile} alt="Login profile " />
-                <a className=" btn ml-4 bg-[#403F3F] text-white">Login</a>
-                
+                <Link to='/login' className=" btn ml-4 bg-[#403F3F] text-white">Login</Link>
             </div>
         </div>
     );
