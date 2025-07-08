@@ -1,15 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from '../shared/Navbar/Navbar';
 import { Link } from 'react-router';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from '../../providers/AuthProvider';
 
 
 const Register = () => {
     // useContext
-    const {createUser} = useContext(AuthContext);
+    const [eyeShow, setEyeShow] = useState(false)
+    const { createUser } = useContext(AuthContext);
 
-     // handle login function
-    const handleRegister = e =>{
+    // handle login function
+    const handleRegister = e => {
         e.preventDefault();
 
         // to get input data
@@ -23,14 +25,13 @@ const Register = () => {
         console.log(name, photo, email, password);
 
         // create user
-        console.log(createUser)
-        createUser(email,password)
-        .then(result =>{
-            console.log(result.user);
-        })
-        .catch(error =>{
-            console.error(error);
-        })
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
 
     return (
@@ -63,7 +64,14 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input name='password' type="password" placeholder="Password" className="input input-bordered" required />
+                                <div className='relative'>
+                                    <input name='password' type={eyeShow ? 'text' : 'password'} placeholder="password" className="input w-full input-bordered" required />
+                                    <div onClick={() => setEyeShow(!eyeShow)} className='absolute bottom-[30%] right-[10%]'>
+                                        {
+                                            eyeShow ? <FaEyeSlash /> : <FaEye />
+                                        }
+                                    </div>
+                                </div>
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
