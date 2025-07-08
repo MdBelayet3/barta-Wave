@@ -6,7 +6,7 @@ const AllNews = ({ news }) => {
     console.log(news)
     const { others_info, category_name, rating, total_view, title, author, thumbnail_url, image_url, details } = news;
     return (
-        <div>
+        <div className='space-y-5 mt-5'>
             {/* card head */}
             <div className='flex items-center justify-between p-5 bg-[#F3F3F3] rounded-t-md'>
                 <div className='flex gap-4'>
@@ -21,7 +21,7 @@ const AllNews = ({ news }) => {
                 </div>
             </div>
             {/* card body */}
-            <div>
+            <div className='space-y-5'>
                 <h2 className='text-xl font-bold'>{title}</h2>
                 <img className='' src={image_url} alt="" />
                 <p>{details}</p>

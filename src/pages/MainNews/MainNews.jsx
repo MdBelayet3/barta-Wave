@@ -14,10 +14,10 @@ const MainNews = () => {
 
     return (
         <div>
-            <p className='text-xl font-semibold'>Dragon News Home : {news.length}</p>
-            <div>
+            <p className='text-xl font-semibold'>Dragon News Home</p>
+            <div className='mt-5 pl-3'>
                 {
-                    news.splice(1,2).map(news => <AllNews news={news}></AllNews>)
+                    news.splice(1,5).map(news => <AllNews news={news}></AllNews>)
                 }
             </div>
         </div>

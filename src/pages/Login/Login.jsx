@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from '../shared/Navbar/Navbar';
 import { Link } from 'react-router';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import AuthProvider, { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
+    // useContext
+    const [eyeShow, setEyeShow] = useState(false)
+    const { loginWithEmail } = useContext(AuthContext)
+
     // handle login function
-    const handleLogin = e =>{
+    const handleLogin = e => {
         e.preventDefault();
+
+        // to get input field
         console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
         console.log(form);
         const email = form.get('email');
         const password = form.get('password');
         console.log(email, password);
+
+        // sector
+        loginWithEmail(email, password)
+            .then(result => {
+                console.log(result);
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
-    
+
     return (
         <div>
             <Navbar></Navbar>
@@ -32,7 +49,14 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input name='password' type="password" placeholder="password" className="input input-bordered" required />
+                                <div className='relative'>
+                                    <input name='password' type={eyeShow ? 'text' : 'password'} placeholder="password" className="input w-full input-bordered" required />
+                                    <div onClick={() => setEyeShow(!eyeShow)} className='absolute bottom-[30%] right-[10%]'>
+                                        {
+                                            eyeShow? <FaEyeSlash /> : <FaEye />
+                                        }
+                                    </div>
+                                </div>
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
