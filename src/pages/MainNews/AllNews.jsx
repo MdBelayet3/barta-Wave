@@ -26,7 +26,10 @@ const AllNews = ({ news }) => {
                 <h2 className='text-xl font-bold'>{title}</h2>
                 <img className='' src={image_url} alt="" />
                 {
-                    details
+                    details.length > 200 ? <p>{details.slice(0, 200)} <Link
+                     className='text-blue-500 font-bold'
+                     to={`/news/${_id}`}
+                     >Reed More</Link></p> : <p>{details}</p>
                 }
             </div>
         </div>
