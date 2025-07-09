@@ -1,10 +1,11 @@
 import React from 'react';
 import { CiBookmark } from "react-icons/ci";
 import { CiShare2 } from "react-icons/ci";
+import { Link } from 'react-router';
 
 const AllNews = ({ news }) => {
     console.log(news)
-    const { others_info, category_name, rating, total_view, title, author, thumbnail_url, image_url, details } = news;
+    const { others_info, _id, category_name, rating, total_view, title, author, thumbnail_url, image_url, details } = news;
     return (
         <div className='space-y-5 mt-5'>
             {/* card head */}
@@ -24,7 +25,9 @@ const AllNews = ({ news }) => {
             <div className='space-y-5'>
                 <h2 className='text-xl font-bold'>{title}</h2>
                 <img className='' src={image_url} alt="" />
-                <p>{details}</p>
+                {
+                    details
+                }
             </div>
         </div>
     );
