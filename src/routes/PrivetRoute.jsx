@@ -4,8 +4,10 @@ import { Navigate, useLocation } from 'react-router';
 
 const PrivetRoute = ({children}) => {
 
+    // useLocation and useContext hook
     const location = useLocation();
-    console.log(location);
+    console.log(location.pathname);
+
     const { user, loading } = useContext(AuthContext);
 
     if(loading){
@@ -16,7 +18,7 @@ const PrivetRoute = ({children}) => {
         return children
     }
 
-    return <Navigate to="/login"></Navigate>
+    return <Navigate state={location.pathname} to="/login"></Navigate>
 };
 
 export default PrivetRoute;
