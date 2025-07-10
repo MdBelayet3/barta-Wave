@@ -1,11 +1,16 @@
 import React, { useContext, useState } from 'react';
 import Navbar from '../shared/Navbar/Navbar';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import AuthProvider, { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-    // useContext
+    //  useLocation useNavigate useState useContext hook from react router dom
+    const location =useLocation();
+    console.log("location in the login page",location.state);
+
+    const navigate = useNavigate();
+
     const [eyeShow, setEyeShow] = useState(false)
     const { loginWithEmail } = useContext(AuthContext)
 
@@ -21,10 +26,14 @@ const Login = () => {
         const password = form.get('password');
         console.log(email, password);
 
-        // sector
+        // Login sector
         loginWithEmail(email, password)
             .then(result => {
                 console.log(result);
+
+                // navigate after login
+                navigate(location?.state ? location.state : '/')
+
             })
             .catch(error => {
                 console.error(error);
