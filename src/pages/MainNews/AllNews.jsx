@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 const AllNews = ({ news }) => {
     console.log(news)
-    const { others_info, _id, category_name, rating, total_view, title, author, thumbnail_url, image_url, details } = news;
+    const { _id, title, author, image_url, details } = news;
     return (
         <div className='space-y-5 mt-5'>
             {/* card head */}
