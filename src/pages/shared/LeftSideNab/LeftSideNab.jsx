@@ -25,7 +25,7 @@ const LeftSideNab = () => {
             <div className='space-y-6 sm-p-5'>
                 <p className='text-xl font-semibold'>All Category</p>
                 {
-                    categories.map(category => <Link
+                    categories.map(category => <Link key={category.id}
                         className='block hover:bg-[#E7E7E7] py-2 text-xl text-[#9F9F9F] font-semibold  rounded-lg px-10'
                         to={`/category/${category.id}`}><button className=' hover:text-black'>{category.name}</button></Link>)
                 }
@@ -34,7 +34,7 @@ const LeftSideNab = () => {
             {/* small news card for highlighting latest news */}
             <div>
                 {
-                    allNews.slice(5, 9).map(news => <NewsCard news={news}></NewsCard>)
+                    allNews.slice(5, 9).map(news => <NewsCard key={news._id} news={news}></NewsCard>)
                 }
             </div>
         </div>
